@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bm4r5mfkwh42r"]
+
+[ext_resource type="Texture2D" uid="uid://c0naflar5j65k" path="res://assets/sprites/game_objects/element_grey_rectangle_glossy.png" id="1_5l4w1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0w5h4"]
+size = Vector2(64, 32)
+
+[node name="Brick" type="StaticBody2D"]
+
+[node name="Texture" type="Sprite2D" parent="."]
+texture = ExtResource("1_5l4w1")
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_0w5h4")
