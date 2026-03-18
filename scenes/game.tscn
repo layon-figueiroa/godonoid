@@ -1,0 +1,24 @@
+[gd_scene load_steps=7 format=3 uid="uid://1xweqc8u8tfe"]
+
+[ext_resource type="Script" uid="uid://brxbbp6lbofg" path="res://scripts/game.gd" id="1_p57ef"]
+[ext_resource type="PackedScene" uid="uid://b0kxs5o56hpdt" path="res://scenes/paddle.tscn" id="1_yqjtg"]
+[ext_resource type="PackedScene" uid="uid://bildeifidbtqm" path="res://scenes/ball.tscn" id="2_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://by6fd5dehnmer" path="res://scenes/walls.tscn" id="3_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://bbbuwfyfyff05" path="res://scenes/brick_generator.tscn" id="4_lbhrr"]
+[ext_resource type="PackedScene" uid="uid://bm4r5mfkwh42r" path="res://scenes/brick.tscn" id="5_iywne"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_p57ef")
+
+[node name="Paddle" parent="." instance=ExtResource("1_yqjtg")]
+position = Vector2(392, 551)
+scale = Vector2(0.7, 0.7)
+
+[node name="Ball" parent="." instance=ExtResource("2_lnu2h")]
+position = Vector2(390, 516)
+scale = Vector2(0.7, 0.7)
+
+[node name="Walls" parent="." instance=ExtResource("3_lnu2h")]
+
+[node name="BrickGenerator" parent="." instance=ExtResource("4_lbhrr")]
+brick_model = ExtResource("5_iywne")

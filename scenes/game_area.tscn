@@ -1,0 +1,53 @@
+[gd_scene load_steps=5 format=3 uid="uid://cs4fmw1bk7tr3"]
+
+[ext_resource type="PackedScene" uid="uid://bamandec48ywx" path="res://scenes/ui.tscn" id="1_4eb3c"]
+[ext_resource type="PackedScene" uid="uid://jthk6flddf0i" path="res://scenes/game_interface.tscn" id="1_gdmpp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8cj0n"]
+bg_color = Color(0.12941177, 0.12941177, 0.12941177, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xxe3a"]
+bg_color = Color(0.12941177, 0.12941177, 0.12941177, 1)
+
+[node name="GameArea" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.12941177, 0.12941177, 0.12941177, 1)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AreaGame" type="Panel" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_8cj0n")
+
+[node name="GameInterface" parent="HBoxContainer/AreaGame" instance=ExtResource("1_gdmpp")]
+layout_mode = 1
+
+[node name="AreaUI" type="Panel" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.8
+theme_override_styles/panel = SubResource("StyleBoxFlat_xxe3a")
+
+[node name="UI" parent="HBoxContainer/AreaUI" instance=ExtResource("1_4eb3c")]
+layout_mode = 1

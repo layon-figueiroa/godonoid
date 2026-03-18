@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dr6lsojx7p8ci"
-path="res://.godot/imported/element_purple_rectangle_glossy.png-6136f4ff3b291c8013f0fdb6678d027f.ctex"
+uid="uid://ksk07eaiphdl"
+path="res://.godot/imported/yellow_bonus.png-e9c4f9282e29bf8efeb31b4fed59e7c4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/game_objects/element_purple_rectangle_glossy.png"
-dest_files=["res://.godot/imported/element_purple_rectangle_glossy.png-6136f4ff3b291c8013f0fdb6678d027f.ctex"]
+source_file="res://assets/sprites/game_objects/yellow_bonus.png"
+dest_files=["res://.godot/imported/yellow_bonus.png-e9c4f9282e29bf8efeb31b4fed59e7c4.ctex"]
 
 [params]
 

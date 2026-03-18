@@ -1,11 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://bm4r5mfkwh42r"]
+[gd_scene load_steps=5 format=3 uid="uid://bm4r5mfkwh42r"]
 
-[ext_resource type="Texture2D" uid="uid://c0naflar5j65k" path="res://assets/sprites/game_objects/element_grey_rectangle_glossy.png" id="1_5l4w1"]
+[ext_resource type="Script" uid="uid://bb1nhh6rgrxen" path="res://scripts/brick.gd" id="1_0w5h4"]
+[ext_resource type="Texture2D" uid="uid://c0naflar5j65k" path="res://assets/sprites/game_objects/white_brick.png" id="1_5l4w1"]
+[ext_resource type="PackedScene" uid="uid://ca3maw8d3tbre" path="res://scenes/bonus.tscn" id="2_7mekc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0w5h4"]
 size = Vector2(64, 32)
 
-[node name="Brick" type="StaticBody2D"]
+[node name="Brick" type="StaticBody2D" groups=["brick"]]
+script = ExtResource("1_0w5h4")
+bonus_scene = ExtResource("2_7mekc")
 
 [node name="Texture" type="Sprite2D" parent="."]
 texture = ExtResource("1_5l4w1")
