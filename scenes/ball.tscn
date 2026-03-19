@@ -6,7 +6,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_cxlvu"]
 radius = 12.0
 
-[node name="Ball" type="CharacterBody2D"]
+[node name="Ball" type="CharacterBody2D" groups=["ball"]]
 script = ExtResource("1_cxlvu")
 
 [node name="Texture" type="Sprite2D" parent="."]

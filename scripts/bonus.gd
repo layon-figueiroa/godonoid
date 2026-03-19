@@ -10,8 +10,8 @@ var effect: String
 var bonus_object: Array[BonusData] = [
 	BonusData.new(preload("res://assets/sprites/game_objects/blue_bonus.png"), "score"),
 	BonusData.new(preload("res://assets/sprites/game_objects/green_bonus.png"), "speed"),
-	BonusData.new(preload("res://assets/sprites/game_objects/red_bonus.png"), "speed"),
-	BonusData.new(preload("res://assets/sprites/game_objects/yellow_bonus.png"), "score")
+	BonusData.new(preload("res://assets/sprites/game_objects/red_bonus.png"), "hold"),
+	BonusData.new(preload("res://assets/sprites/game_objects/yellow_bonus.png"), "growth")
 ]
 
 func _ready() -> void:
@@ -33,7 +33,6 @@ func check_out_of_screen() -> void:
 	
 	if position.y > screen_height + 50:
 		queue_free()
-		print("Bônus sumiu")
 		
 func _on_body_entered(body) -> void:
 	if body.is_in_group("paddle"):

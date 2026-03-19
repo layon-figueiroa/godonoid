@@ -2,8 +2,6 @@ extends Node
 
 @export var brick_model: PackedScene
 
-#var brick_x_position: float = 32.0
-#var brick_y_position: float = 82.0
 var brick_width: float = 64.0
 var brick_height: float = 32.0
 

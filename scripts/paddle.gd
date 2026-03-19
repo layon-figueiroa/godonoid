@@ -15,10 +15,19 @@ func move_paddle() -> void:
 func increase_speed() -> void:
 	speed = 600.0
 	await get_tree().create_timer(10.0).timeout
-	speed = 300.0
+	
+	if speed == 600.0:
+		speed = 300.0
 
 func add_score() -> void:
 	GameManager.add_score(1000)
+	
+func growth_paddle() -> void:
+	scale = Vector2(2.0, 1.0)
+	await get_tree().create_timer(20.0).timeout
+	
+	if scale.x == 2.0:
+		scale = Vector2(1.0, 1.0)
 
 func _on_bonus_collected(effect) -> void:
 	match effect:
@@ -27,3 +36,8 @@ func _on_bonus_collected(effect) -> void:
 		"score":
 			add_score()
 			print(GameManager.current_score)
+		"hold":
+			var ball = get_tree().get_first_node_in_group("ball")
+			ball._on_hold_active()
+		"growth":
+			growth_paddle()
