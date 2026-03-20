@@ -8,10 +8,10 @@ var speed: float = 100.0
 var effect: String
 
 var bonus_object: Array[BonusData] = [
-	BonusData.new(preload("res://assets/sprites/game_objects/blue_bonus.png"), "score"),
-	BonusData.new(preload("res://assets/sprites/game_objects/green_bonus.png"), "speed"),
+	BonusData.new(preload("res://assets/sprites/game_objects/blue_bonus.png"), "speed"),
+	BonusData.new(preload("res://assets/sprites/game_objects/green_bonus.png"), "growth"),
 	BonusData.new(preload("res://assets/sprites/game_objects/red_bonus.png"), "hold"),
-	BonusData.new(preload("res://assets/sprites/game_objects/yellow_bonus.png"), "growth")
+	BonusData.new(preload("res://assets/sprites/game_objects/yellow_bonus.png"), "score")
 ]
 
 func _ready() -> void:

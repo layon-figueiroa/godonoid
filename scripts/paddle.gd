@@ -1,6 +1,11 @@
 extends CharacterBody2D
 
-@export var speed: float = 300.0
+@export var speed: float
+
+var initial_position: Vector2 = Vector2(392.0, 551.0)
+
+func _ready() -> void:
+	GameManager.life_lost.connect(_on_life_lost)
 
 func _physics_process(_delta: float) -> void:
 	move_paddle()
@@ -23,11 +28,22 @@ func add_score() -> void:
 	GameManager.add_score(1000)
 	
 func growth_paddle() -> void:
-	scale = Vector2(2.0, 1.0)
+	var tween = create_tween()
+	tween.set_trans(Tween.TRANS_BACK)
+	tween.set_ease(Tween.EASE_OUT)
+	
+	tween.tween_property(self, "scale:x", 2.0, 0.4)
+	
 	await get_tree().create_timer(20.0).timeout
 	
-	if scale.x == 2.0:
-		scale = Vector2(1.0, 1.0)
+	var tween_back = create_tween()
+	tween_back.set_trans(Tween.TRANS_SINE)
+	tween_back.set_ease(Tween.EASE_IN_OUT)
+	
+	tween_back.tween_property(self, "scale:x", 1.0, 0.4)
+	
+func reinitialize_move() -> void:
+	speed = 300.0
 
 func _on_bonus_collected(effect) -> void:
 	match effect:
@@ -41,3 +57,7 @@ func _on_bonus_collected(effect) -> void:
 			ball._on_hold_active()
 		"growth":
 			growth_paddle()
+
+func _on_life_lost() -> void:
+	speed = 0
+	position = initial_position

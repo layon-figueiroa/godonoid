@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dxvrrifyy2awk"]
+
+[ext_resource type="Texture2D" uid="uid://dhw87aaevlhw4" path="res://assets/sprites/game_objects/paddleRed.png" id="1_un66g"]
+
+[node name="Life1" type="TextureRect"]
+custom_minimum_size = Vector2(30, 10)
+size_flags_vertical = 4
+texture = ExtResource("1_un66g")
+expand_mode = 1
+stretch_mode = 5

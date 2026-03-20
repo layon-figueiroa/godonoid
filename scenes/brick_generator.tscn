@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://bbbuwfyfyff05"]
+[gd_scene load_steps=3 format=3 uid="uid://bbbuwfyfyff05"]
 
 [ext_resource type="Script" uid="uid://ivhd5mw86h8e" path="res://scripts/brick_generator.gd" id="1_00co7"]
+[ext_resource type="PackedScene" uid="uid://bm4r5mfkwh42r" path="res://scenes/brick.tscn" id="2_ytf3y"]
 
 [node name="BrickGenerator" type="Node"]
 script = ExtResource("1_00co7")
+brick_model = ExtResource("2_ytf3y")

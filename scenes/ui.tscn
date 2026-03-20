@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bamandec48ywx"]
+[gd_scene load_steps=7 format=3 uid="uid://bamandec48ywx"]
 
 [ext_resource type="FontFile" uid="uid://cg5sk2dijs708" path="res://assets/fonts/tt_bricks/TT Bricks Trial Bold.otf" id="1_x4jx1"]
 [ext_resource type="FontFile" uid="uid://d3lp3f1gkcn5w" path="res://assets/fonts/arkanoid/iomanoid back.ttf" id="1_yev5y"]
 [ext_resource type="Texture2D" uid="uid://dhw87aaevlhw4" path="res://assets/sprites/game_objects/paddleRed.png" id="2_yev5y"]
+[ext_resource type="PackedScene" uid="uid://dxvrrifyy2awk" path="res://scenes/life_texture.tscn" id="3_gdt2y"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_wm3ai"]
 font = ExtResource("1_yev5y")
@@ -95,13 +96,8 @@ layout_mode = 2
 size_flags_vertical = 4
 alignment = 1
 
-[node name="Life1" type="TextureRect" parent="VBoxContainer/MarginLives/ContLives"]
-custom_minimum_size = Vector2(30, 10)
+[node name="Life1" parent="VBoxContainer/MarginLives/ContLives" instance=ExtResource("3_gdt2y")]
 layout_mode = 2
-size_flags_vertical = 4
-texture = ExtResource("2_yev5y")
-expand_mode = 1
-stretch_mode = 5
 
 [node name="Life2" type="TextureRect" parent="VBoxContainer/MarginLives/ContLives"]
 custom_minimum_size = Vector2(30, 10)

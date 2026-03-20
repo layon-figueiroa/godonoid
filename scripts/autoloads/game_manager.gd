@@ -1,10 +1,12 @@
 extends Node
 
 signal state_changed(new_state) # Avisa às cenas quando o estado do jogo mudou
+signal life_lost
 
 enum State {
 	START,
 	PLAYING,
+	STAND_BY,
 	PAUSED,
 	GAME_OVER,
 	CREDITS
@@ -26,15 +28,17 @@ func change_state(new_state: State) -> void:
 	
 	match current_state:
 		State.START:
-			pass
+			call_start_screen()
 		State.PLAYING:
-			pass
+			call_play_game()
+		State.STAND_BY:
+			call_stand_by()
 		State.PAUSED:
-			pass
+			call_pause_game()
 		State.GAME_OVER:
-			pass
+			call_game_over()
 		State.CREDITS:
-			pass
+			call_credits()
 
 ## Funções chamadas de acordo com cada estado do jogo #################
 
@@ -45,6 +49,10 @@ func call_start_screen() -> void:
 ## Controla as ações quando jogo é iniciado
 func call_play_game() -> void:
 	print("Playing game now!")
+
+## Controla as ações quando o jogo está na tela de stand by
+func call_stand_by() -> void:
+	print("Playing stand by scene!")
 
 ## Controla as ações quando o jogo é pausado
 func call_pause_game() -> void:
@@ -72,3 +80,4 @@ func update_top_score() -> void:
 ## Remove uma vida do jogador
 func lose_life() -> void:
 	lives = max(lives - 1, 0) # Evita que a quantidade de vidas seja menor que zero
+	life_lost.emit()
