@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bildeifidbtqm" path="res://scenes/ball.tscn" id="2_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://by6fd5dehnmer" path="res://scenes/walls.tscn" id="3_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://bbbuwfyfyff05" path="res://scenes/brick_generator.tscn" id="4_lbhrr"]
-[ext_resource type="PackedScene" uid="uid://b0j7hnaeixlfg" path="res://scenes/standby.tscn" id="6_p57ef"]
+[ext_resource type="PackedScene" uid="uid://b0j7hnaeixlfg" path="res://scenes/canvas_layer.tscn" id="6_p57ef"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_p57ef")
@@ -22,4 +22,4 @@ scale = Vector2(0.7, 0.7)
 
 [node name="BrickGenerator" parent="." instance=ExtResource("4_lbhrr")]
 
-[node name="Standby" parent="." instance=ExtResource("6_p57ef")]
+[node name="CanvasLayer" parent="." instance=ExtResource("6_p57ef")]

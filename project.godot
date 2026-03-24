@@ -12,6 +12,7 @@ config_version=5
 
 config/name="godonoid"
 config/tags=PackedStringArray("clone", "estudo")
+run/main_scene="uid://1xweqc8u8tfe"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 
 [autoload]

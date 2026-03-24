@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://b0j7hnaeixlfg"]
+
+[ext_resource type="Script" uid="uid://mtbaswaml4i2" path="res://scripts/canvas_layer.gd" id="1_2d1tp"]
+[ext_resource type="PackedScene" uid="uid://cr8i1bydf3ppi" path="res://scenes/standby.tscn" id="3_ek3oe"]
+[ext_resource type="PackedScene" uid="uid://dw8l1h72a53df" path="res://scenes/game_over.tscn" id="4_mg525"]
+[ext_resource type="PackedScene" uid="uid://c1haujr81vr74" path="res://scenes/start_screen.tscn" id="5_kfwc7"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_2d1tp")
+metadata/_edit_use_anchors_ = true
+
+[node name="Standby" parent="." instance=ExtResource("3_ek3oe")]
+texture_scene = null
+
+[node name="GameOver" parent="." instance=ExtResource("4_mg525")]
+visible = false
+
+[node name="StartScreen" parent="." instance=ExtResource("5_kfwc7")]

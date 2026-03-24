@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 signal destroy_brick(brick)
 
+#@onready var canvas_scene: CanvasLayer = $"../CanvasLayer"
+
 var is_hold_active: bool = false
 var attached_to_paddle: Node2D = null #Aqui define-se a que paddle a bola ficará presa
 var offset: Vector2 #Aqui define-se o offset do paddle pra bola
@@ -11,6 +13,7 @@ func _ready() -> void:
 	velocity = Vector2.ZERO
 	
 	GameManager.life_lost.connect(_on_life_lost)
+	GameManager.state_changed.connect(_on_state_changed)
 
 func _physics_process(delta: float) -> void:
 	check_out_of_game_area()
@@ -65,6 +68,13 @@ func reinitialize_move() -> void:
 		
 func _on_hold_active() -> void:
 	is_hold_active = true
+	
+func _on_state_changed(new_state) -> void:
+	if new_state != GameManager.State.PLAYING:
+		_on_life_lost()
+		return
+	
+	reinitialize_move()
 	
 func _on_life_lost() -> void:
 	velocity = Vector2.ZERO

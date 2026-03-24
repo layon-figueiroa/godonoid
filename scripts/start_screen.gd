@@ -1,0 +1,14 @@
+extends Control
+
+func _ready() -> void:
+	GameManager.state_changed.connect(_on_state_changed)
+	
+func _on_state_changed(new_state) -> void:
+	if new_state != GameManager.State.START:
+		return
+	
+	visible = true
+
+func _on_button_pressed() -> void:
+	GameManager.change_state(GameManager.State.STAND_BY)
+	visible = false

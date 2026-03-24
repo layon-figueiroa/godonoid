@@ -9,6 +9,7 @@ enum State {
 	STAND_BY,
 	PAUSED,
 	GAME_OVER,
+	WIN,
 	CREDITS
 }
 
@@ -16,6 +17,7 @@ var current_state: State = State.START
 var current_score: int = 0
 var top_score: int = 0
 var lives: int = 3
+var total_bricks: int = 72
 
 ## Função chamada pelas cenas do jogo para solicitar a mudança de estado
 
@@ -37,6 +39,8 @@ func change_state(new_state: State) -> void:
 			call_pause_game()
 		State.GAME_OVER:
 			call_game_over()
+		State.WIN:
+			call_win()
 		State.CREDITS:
 			call_credits()
 
@@ -44,15 +48,17 @@ func change_state(new_state: State) -> void:
 
 ## Controla as ações quando o jogo está na tela inicial
 func call_start_screen() -> void:
-	print("Showing start screen now!")
+	current_score = 0
+	lives = 3
+	total_bricks = 72
 
 ## Controla as ações quando jogo é iniciado
 func call_play_game() -> void:
-	print("Playing game now!")
+	pass
 
 ## Controla as ações quando o jogo está na tela de stand by
 func call_stand_by() -> void:
-	print("Playing stand by scene!")
+	pass
 
 ## Controla as ações quando o jogo é pausado
 func call_pause_game() -> void:
@@ -60,7 +66,11 @@ func call_pause_game() -> void:
 
 ## Controla as ações quando em game over
 func call_game_over() -> void:
-	print("Game finished now...")
+	pass
+	
+## Controla as ações quando o jogador vence o jogo
+func call_win() -> void:
+	pass
 
 ## Controla as ações quando exibindo os créditos
 func call_credits() -> void:
@@ -80,4 +90,13 @@ func update_top_score() -> void:
 ## Remove uma vida do jogador
 func lose_life() -> void:
 	lives = max(lives - 1, 0) # Evita que a quantidade de vidas seja menor que zero
+	if lives == 0:
+		update_top_score()
+		change_state(State.GAME_OVER)
+		return
+
+	change_state(State.STAND_BY)
 	life_lost.emit()
+
+func remove_bricks() -> void:
+	total_bricks = max(total_bricks - 1, 0)

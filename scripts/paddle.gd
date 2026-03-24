@@ -2,10 +2,13 @@ extends CharacterBody2D
 
 @export var speed: float
 
+@onready var collision: CollisionShape2D = $Collision
+
 var initial_position: Vector2 = Vector2(392.0, 551.0)
 
 func _ready() -> void:
 	GameManager.life_lost.connect(_on_life_lost)
+	GameManager.state_changed.connect(_on_state_changed)
 
 func _physics_process(_delta: float) -> void:
 	move_paddle()
@@ -44,6 +47,10 @@ func growth_paddle() -> void:
 	
 func reinitialize_move() -> void:
 	speed = 300.0
+	
+func reset_bonus() -> void:
+	scale.x = 1.0
+	speed = 300.0
 
 func _on_bonus_collected(effect) -> void:
 	match effect:
@@ -51,7 +58,7 @@ func _on_bonus_collected(effect) -> void:
 			increase_speed()
 		"score":
 			add_score()
-			print(GameManager.current_score)
+			print(GameManager.current_score) #Apagar depois
 		"hold":
 			var ball = get_tree().get_first_node_in_group("ball")
 			ball._on_hold_active()
@@ -61,3 +68,13 @@ func _on_bonus_collected(effect) -> void:
 func _on_life_lost() -> void:
 	speed = 0
 	position = initial_position
+	
+func _on_state_changed(new_state) -> void:
+	if new_state != GameManager.State.PLAYING:
+		collision.disabled = true
+		reset_bonus()
+		_on_life_lost()
+		return
+		
+	collision.disabled = false
+	reinitialize_move()

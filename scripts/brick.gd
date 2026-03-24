@@ -36,3 +36,4 @@ func destroy() -> void:
 		get_parent().add_child(bonus) #O pai quem precisa instanciar o bonus. Nesse caso a cena Game
 	
 	queue_free()
+	GameManager.remove_bricks()

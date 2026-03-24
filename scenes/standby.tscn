@@ -1,27 +1,22 @@
-[gd_scene load_steps=5 format=3 uid="uid://b0j7hnaeixlfg"]
+[gd_scene load_steps=4 format=3 uid="uid://cr8i1bydf3ppi"]
 
-[ext_resource type="Script" uid="uid://mtbaswaml4i2" path="res://scripts/standby.gd" id="1_2d1tp"]
-[ext_resource type="PackedScene" uid="uid://dxvrrifyy2awk" path="res://scenes/life_texture.tscn" id="2_c0rmw"]
+[ext_resource type="Script" uid="uid://bidnm4uvddi7e" path="res://scripts/standby.gd" id="1_2d1tp"]
 [ext_resource type="FontFile" uid="uid://cg5sk2dijs708" path="res://assets/fonts/tt_bricks/TT Bricks Trial Bold.otf" id="3_q7xr6"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_c0rmw"]
 font = ExtResource("3_q7xr6")
 
-[node name="Standby" type="CanvasLayer"]
+[node name="Standby" type="Control"]
 visible = false
-script = ExtResource("1_2d1tp")
-texture_scene = ExtResource("2_c0rmw")
-metadata/_edit_use_anchors_ = true
-
-[node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_2d1tp")
 
-[node name="Background" type="ColorRect" parent="Control"]
+[node name="Background" type="ColorRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -30,7 +25,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.12941177, 0.12941177, 0.12941177, 1)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -43,14 +38,14 @@ grow_vertical = 2
 theme_override_constants/separation = 15
 alignment = 1
 
-[node name="Label" type="Label" parent="Control/VBoxContainer"]
+[node name="Label" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 text = "PLAYER 1"
 label_settings = SubResource("LabelSettings_c0rmw")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Control/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 5
 alignment = 1
