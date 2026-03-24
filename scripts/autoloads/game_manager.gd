@@ -17,7 +17,7 @@ var current_state: State = State.START
 var current_score: int = 0
 var top_score: int = 0
 var lives: int = 3
-var total_bricks: int = 72
+var total_bricks: int = 54
 
 ## Função chamada pelas cenas do jogo para solicitar a mudança de estado
 

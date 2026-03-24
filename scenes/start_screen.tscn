@@ -1,6 +1,41 @@
-[gd_scene load_steps=2 format=3 uid="uid://c1haujr81vr74"]
+[gd_scene load_steps=12 format=3 uid="uid://c1haujr81vr74"]
 
 [ext_resource type="Script" uid="uid://dxbwwqh114vd5" path="res://scripts/start_screen.gd" id="1_tx5wa"]
+[ext_resource type="FontFile" uid="uid://d3lp3f1gkcn5w" path="res://assets/fonts/arkanoid/iomanoid back.ttf" id="2_o7i0r"]
+[ext_resource type="Texture2D" uid="uid://4xjp37bpxp7r" path="res://assets/images/Fundo futurista para menu de jogo.png" id="2_r2jwc"]
+[ext_resource type="FontFile" uid="uid://bjyfi17gvc1y2" path="res://assets/fonts/tt_bricks/TT Bricks Trial Medium.otf" id="3_he1sj"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_he1sj"]
+font = ExtResource("2_o7i0r")
+font_size = 70
+outline_size = 6
+outline_color = Color(0.9529412, 0.25882354, 0.13725491, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r2jwc"]
+bg_color = Color(0.09411765, 0.29411766, 0.5764706, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hm208"]
+bg_color = Color(1, 1, 1, 1)
+expand_margin_left = 5.0
+expand_margin_right = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_he1sj"]
+bg_color = Color(0.09411765, 0.29411766, 0.5764706, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5pab1"]
+bg_color = Color(1, 1, 1, 1)
+expand_margin_left = 5.0
+expand_margin_right = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o30b1"]
+bg_color = Color(1, 1, 1, 1)
+expand_margin_left = 5.0
+expand_margin_right = 5.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_r2jwc"]
+font = ExtResource("3_he1sj")
+font_size = 10
+shadow_size = 3
 
 [node name="StartScreen" type="Control"]
 layout_mode = 3
@@ -11,16 +46,18 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_tx5wa")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.12941177, 0.12941177, 0.12941177, 1)
+texture = ExtResource("2_r2jwc")
+expand_mode = 1
+stretch_mode = 6
 
-[node name="Button" type="Button" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -28,11 +65,71 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -53.0
-offset_top = -15.5
+offset_top = -64.0
 offset_right = 53.0
-offset_bottom = 15.5
+offset_bottom = 64.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 50
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "GODONOID"
+label_settings = SubResource("LabelSettings_he1sj")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 7
+alignment = 1
+
+[node name="BtnStart" type="Button" parent="VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.09411765, 0.29411766, 0.5764706, 1)
+theme_override_fonts/font = ExtResource("3_he1sj")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxFlat_r2jwc")
+theme_override_styles/hover = SubResource("StyleBoxFlat_hm208")
 text = "START GAME"
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[node name="BtnQuit" type="Button" parent="VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.09411765, 0.29411766, 0.5764706, 1)
+theme_override_fonts/font = ExtResource("3_he1sj")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxFlat_he1sj")
+theme_override_styles/hover = SubResource("StyleBoxFlat_5pab1")
+text = "QUIT GAME"
+
+[node name="BtnCredits" type="Button" parent="VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.09411765, 0.29411766, 0.5764706, 1)
+theme_override_fonts/font = ExtResource("3_he1sj")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxFlat_r2jwc")
+theme_override_styles/hover = SubResource("StyleBoxFlat_o30b1")
+text = "CREDITS"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Powered by L. F. Santos - 2026"
+label_settings = SubResource("LabelSettings_r2jwc")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="VBoxContainer/MarginContainer/VBoxContainer/BtnStart" to="." method="_on_button_pressed"]

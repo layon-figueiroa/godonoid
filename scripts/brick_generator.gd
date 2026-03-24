@@ -13,7 +13,7 @@ func generate_brick_group() -> void:
 	clear_remaining_bricks()
 	
 	for i in range(6):
-		for j in range(12):
+		for j in range(9):
 			var brick = brick_model.instantiate()
 			brick.position = Vector2((brick_width * j + brick_width / 2), (brick_height * i + brick_height / 2))
 			add_child(brick)

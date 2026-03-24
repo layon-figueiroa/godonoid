@@ -7,7 +7,7 @@ signal destroy_brick(brick)
 var is_hold_active: bool = false
 var attached_to_paddle: Node2D = null #Aqui define-se a que paddle a bola ficará presa
 var offset: Vector2 #Aqui define-se o offset do paddle pra bola
-var initial_position: Vector2 = Vector2(390.0, 516.0)
+var initial_position: Vector2 = Vector2(286.0, 521.0)
 
 func _ready() -> void:
 	velocity = Vector2.ZERO
@@ -44,7 +44,6 @@ func handle_collision(collision: KinematicCollision2D) -> void:
 	if collider.is_in_group("brick"):
 		destroy_brick.emit(collider)
 		GameManager.add_score(10)
-		print(GameManager.current_score)
 		
 func attach_to_paddle(paddle: Node2D) -> void:
 	attached_to_paddle = paddle

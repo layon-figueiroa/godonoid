@@ -4,7 +4,7 @@ extends CharacterBody2D
 
 @onready var collision: CollisionShape2D = $Collision
 
-var initial_position: Vector2 = Vector2(392.0, 551.0)
+var initial_position: Vector2 = Vector2(286.0, 551.0)
 
 func _ready() -> void:
 	GameManager.life_lost.connect(_on_life_lost)
@@ -58,7 +58,6 @@ func _on_bonus_collected(effect) -> void:
 			increase_speed()
 		"score":
 			add_score()
-			print(GameManager.current_score) #Apagar depois
 		"hold":
 			var ball = get_tree().get_first_node_in_group("ball")
 			ball._on_hold_active()
