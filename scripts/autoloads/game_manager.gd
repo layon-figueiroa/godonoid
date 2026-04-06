@@ -8,6 +8,7 @@ enum State {
 	PLAYING,
 	STAND_BY,
 	PAUSED,
+	UNPAUSED,
 	GAME_OVER,
 	WIN,
 	CREDITS
@@ -37,6 +38,8 @@ func change_state(new_state: State) -> void:
 			call_stand_by()
 		State.PAUSED:
 			call_pause_game()
+		State.UNPAUSED:
+			call_unpause_game()
 		State.GAME_OVER:
 			call_game_over()
 		State.WIN:
@@ -50,11 +53,11 @@ func change_state(new_state: State) -> void:
 func call_start_screen() -> void:
 	current_score = 0
 	lives = 3
-	total_bricks = 72
+	total_bricks = 54
 
 ## Controla as ações quando jogo é iniciado
 func call_play_game() -> void:
-	pass
+	print("Game is playing now...")
 
 ## Controla as ações quando o jogo está na tela de stand by
 func call_stand_by() -> void:
@@ -63,6 +66,13 @@ func call_stand_by() -> void:
 ## Controla as ações quando o jogo é pausado
 func call_pause_game() -> void:
 	print("Game is paused now...")
+	get_tree().paused = true
+
+## Controla as ações quando o jogo é despausado
+func call_unpause_game() -> void:
+	print("You unpaused the game now...")
+	get_tree().paused = false
+	#change_state(State.PLAYING)
 
 ## Controla as ações quando em game over
 func call_game_over() -> void:

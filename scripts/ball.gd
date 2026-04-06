@@ -68,13 +68,23 @@ func reinitialize_move() -> void:
 func _on_hold_active() -> void:
 	is_hold_active = true
 	
-func _on_state_changed(new_state) -> void:
-	if new_state != GameManager.State.PLAYING:
-		_on_life_lost()
-		return
-	
-	reinitialize_move()
-	
 func _on_life_lost() -> void:
 	velocity = Vector2.ZERO
 	position = initial_position
+	
+func _on_state_changed(new_state) -> void:
+	match new_state:
+		GameManager.State.START:
+			_on_life_lost()
+			print("A bola está paradinha")
+		GameManager.State.STAND_BY:
+			_on_life_lost()
+			print("A bola está paradinha")
+		GameManager.State.PLAYING:
+			reinitialize_move()
+			print("A bola está se movendo")
+		GameManager.State.PAUSED:
+			return
+		GameManager.State.GAME_OVER:
+			_on_life_lost()
+			print("A bola está paradinha")
