@@ -30,4 +30,5 @@ func _on_state_changed(new_state) -> void:
 	if new_state == GameManager.State.CREDITS:
 		visible = true
 		credits_state = true
+		AudioManager.play_music(preload("res://assets/audios/04 Ending.mp3"))
 	

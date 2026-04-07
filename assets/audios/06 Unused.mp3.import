@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dp02xk7drl8my"
+path="res://.godot/imported/06 Unused.mp3-19e02a560e1aef236acc3de10a34ae8e.mp3str"
+
+[deps]
+
+source_file="res://assets/audios/06 Unused.mp3"
+dest_files=["res://.godot/imported/06 Unused.mp3-19e02a560e1aef236acc3de10a34ae8e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

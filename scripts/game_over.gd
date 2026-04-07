@@ -16,6 +16,7 @@ func _on_state_changed(new_state) -> void:
 		return
 	
 	show_game_over()
+	AudioManager.play_music(preload("res://assets/audios/05 Game Over.mp3"))
 
 func _on_button_pressed() -> void:
 	GameManager.change_state(GameManager.State.START)

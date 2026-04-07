@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dk0s5ada7kg0t"
+path="res://.godot/imported/04 Ending.mp3-2067612c10d6796653c949f7d4b5caae.mp3str"
+
+[deps]
+
+source_file="res://assets/audios/04 Ending.mp3"
+dest_files=["res://.godot/imported/04 Ending.mp3-2067612c10d6796653c949f7d4b5caae.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

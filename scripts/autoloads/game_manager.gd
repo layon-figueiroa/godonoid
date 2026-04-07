@@ -18,7 +18,7 @@ var current_state: State = State.START
 var current_score: int = 0
 var top_score: int = 0
 var lives: int = 3
-var total_bricks: int = 45
+var total_bricks: int = 2
 
 func _ready() -> void:
 	load_game()
@@ -50,7 +50,7 @@ func change_state(new_state: State) -> void:
 func call_start_screen() -> void:
 	current_score = 0
 	lives = 3
-	total_bricks = 45
+	total_bricks = 2
 
 ## Controla as ações quando o jogo é pausado
 func call_pause_game() -> void:

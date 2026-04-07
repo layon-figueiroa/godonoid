@@ -21,7 +21,7 @@ func show_stand_by() -> void:
 	life_lost()
 	visible = true
 	
-	await get_tree().create_timer(6.0).timeout
+	await get_tree().create_timer(3.0).timeout
 	
 	visible = false
 	GameManager.change_state(GameManager.State.PLAYING)
@@ -31,3 +31,4 @@ func _on_state_changed(new_state) -> void:
 		return
 	
 	show_stand_by()
+	AudioManager.play_music(preload("res://assets/audios/02 Round Start.mp3"))

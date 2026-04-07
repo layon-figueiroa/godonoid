@@ -18,6 +18,7 @@ config/features=PackedStringArray("4.5", "GL Compatibility")
 [autoload]
 
 GameManager="*res://scripts/autoloads/game_manager.gd"
+AudioManager="*res://scripts/autoloads/audio_manager.tscn"
 
 [display]
 
