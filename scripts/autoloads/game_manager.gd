@@ -20,6 +20,9 @@ var top_score: int = 0
 var lives: int = 3
 var total_bricks: int = 45
 
+func _ready() -> void:
+	load_game()
+
 ## Função chamada pelas cenas do jogo para solicitar a mudança de estado
 
 func change_state(new_state: State) -> void:
@@ -60,6 +63,7 @@ func call_unpause_game() -> void:
 	
 ## Controla as ações quando o jogador vence o jogo
 func call_win() -> void:
+	update_top_score()
 	get_tree().paused = true
 
 ## Controla as ações quando exibindo os créditos
@@ -75,7 +79,10 @@ func add_score(point: int) -> void:
 ## Altera o top_score caso o score atual seja maior
 ## Que o valor do top_score atual
 func update_top_score() -> void:	
-	top_score = max(current_score, top_score) # Função max retorna o maior número entre dois números
+	#top_score = max(current_score, top_score) Função max retorna o maior número entre dois números
+	if current_score > top_score:
+		top_score = current_score
+		save_game()
 
 ## Remove uma vida do jogador
 func lose_life() -> void:
@@ -95,3 +102,23 @@ func remove_bricks() -> void:
 		return
 	
 	change_state(State.WIN)
+	
+func save_game() -> void:
+	var data = {
+		"top_score": top_score
+	}
+	
+	var file = FileAccess.open("user://save.json", FileAccess.WRITE)
+	file.store_string(JSON.stringify(data))
+	
+func load_game() -> void:
+	if not FileAccess.file_exists("user://save.json"):
+		return
+		
+	var file = FileAccess.open("user://save.json", FileAccess.READ)
+	var content = file.get_as_text()
+	
+	var data = JSON.parse_string(content)
+	
+	if data:
+		top_score = data.get("top_score", 0)

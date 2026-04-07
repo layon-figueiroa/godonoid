@@ -1,0 +1,112 @@
+[gd_scene load_steps=5 format=3 uid="uid://dyk5l0j6kkpr4"]
+
+[ext_resource type="FontFile" uid="uid://bjyfi17gvc1y2" path="res://assets/fonts/tt_bricks/TT Bricks Trial Medium.otf" id="1_0bpdh"]
+[ext_resource type="Script" uid="uid://cfhsxcnip62na" path="res://scripts/credits.gd" id="1_2ckv8"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_2ckv8"]
+font = ExtResource("1_0bpdh")
+font_size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_0ctdu"]
+font = ExtResource("1_0bpdh")
+
+[node name="Credits" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2ckv8")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.12941177, 0.12941177, 0.12941177, 1)
+
+[node name="VContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -74.5
+offset_top = -149.0
+offset_right = 74.5
+offset_bottom = 149.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 30
+
+[node name="VContainerDesenvolvimento" type="VBoxContainer" parent="VContainer"]
+layout_mode = 2
+
+[node name="LblDesenvolvimento" type="Label" parent="VContainer/VContainerDesenvolvimento"]
+layout_mode = 2
+text = "Desenvolvimento"
+label_settings = SubResource("LabelSettings_2ckv8")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LblNome" type="Label" parent="VContainer/VContainerDesenvolvimento"]
+layout_mode = 2
+text = "Layon Figueiroa"
+label_settings = SubResource("LabelSettings_0ctdu")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VContainerArte" type="VBoxContainer" parent="VContainer"]
+layout_mode = 2
+
+[node name="LblArte" type="Label" parent="VContainer/VContainerArte"]
+layout_mode = 2
+text = "Arte"
+label_settings = SubResource("LabelSettings_2ckv8")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LblNome" type="Label" parent="VContainer/VContainerArte"]
+layout_mode = 2
+text = "Kenney Assets"
+label_settings = SubResource("LabelSettings_0ctdu")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VContainerMusica" type="VBoxContainer" parent="VContainer"]
+layout_mode = 2
+
+[node name="LblMusica" type="Label" parent="VContainer/VContainerMusica"]
+layout_mode = 2
+text = "Música e Efeitos"
+label_settings = SubResource("LabelSettings_2ckv8")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LblNome" type="Label" parent="VContainer/VContainerMusica"]
+layout_mode = 2
+text = "[Ainda sem]"
+label_settings = SubResource("LabelSettings_0ctdu")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VContainerEngine" type="VBoxContainer" parent="VContainer"]
+layout_mode = 2
+
+[node name="LblEngine" type="Label" parent="VContainer/VContainerEngine"]
+layout_mode = 2
+text = "Desenvolvido com"
+label_settings = SubResource("LabelSettings_2ckv8")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LblNome" type="Label" parent="VContainer/VContainerEngine"]
+layout_mode = 2
+text = "Godot Engine"
+label_settings = SubResource("LabelSettings_0ctdu")
+horizontal_alignment = 1
+vertical_alignment = 1

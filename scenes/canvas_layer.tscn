@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://b0j7hnaeixlfg"]
+[gd_scene load_steps=9 format=3 uid="uid://b0j7hnaeixlfg"]
 
 [ext_resource type="Script" uid="uid://mtbaswaml4i2" path="res://scripts/canvas_layer.gd" id="1_2d1tp"]
 [ext_resource type="PackedScene" uid="uid://cr8i1bydf3ppi" path="res://scenes/standby.tscn" id="3_ek3oe"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://c1haujr81vr74" path="res://scenes/start_screen.tscn" id="5_kfwc7"]
 [ext_resource type="PackedScene" uid="uid://i4gdqmadnx4n" path="res://scenes/pause_screen.tscn" id="6_4a2ha"]
 [ext_resource type="PackedScene" uid="uid://da2llwergjkhq" path="res://scenes/victory.tscn" id="7_g6s7q"]
+[ext_resource type="PackedScene" uid="uid://dyk5l0j6kkpr4" path="res://scenes/credits.tscn" id="8_jtalx"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 process_mode = 3
@@ -30,3 +31,6 @@ offset_left = 0.2319336
 visible = false
 
 [node name="Victory" parent="." instance=ExtResource("7_g6s7q")]
+
+[node name="Credits" parent="." instance=ExtResource("8_jtalx")]
+visible = false
