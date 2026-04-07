@@ -18,7 +18,7 @@ var current_state: State = State.START
 var current_score: int = 0
 var top_score: int = 0
 var lives: int = 3
-var total_bricks: int = 54
+var total_bricks: int = 45
 
 ## Função chamada pelas cenas do jogo para solicitar a mudança de estado
 
@@ -32,16 +32,10 @@ func change_state(new_state: State) -> void:
 	match current_state:
 		State.START:
 			call_start_screen()
-		State.PLAYING:
-			call_play_game()
-		State.STAND_BY:
-			call_stand_by()
 		State.PAUSED:
 			call_pause_game()
 		State.UNPAUSED:
 			call_unpause_game()
-		State.GAME_OVER:
-			call_game_over()
 		State.WIN:
 			call_win()
 		State.CREDITS:
@@ -53,38 +47,24 @@ func change_state(new_state: State) -> void:
 func call_start_screen() -> void:
 	current_score = 0
 	lives = 3
-	total_bricks = 54
-
-## Controla as ações quando jogo é iniciado
-func call_play_game() -> void:
-	print("Game is playing now...")
-
-## Controla as ações quando o jogo está na tela de stand by
-func call_stand_by() -> void:
-	pass
+	total_bricks = 45
 
 ## Controla as ações quando o jogo é pausado
 func call_pause_game() -> void:
-	print("Game is paused now...")
 	get_tree().paused = true
 
 ## Controla as ações quando o jogo é despausado
 func call_unpause_game() -> void:
-	print("You unpaused the game now...")
 	get_tree().paused = false
 	#change_state(State.PLAYING)
-
-## Controla as ações quando em game over
-func call_game_over() -> void:
-	pass
 	
 ## Controla as ações quando o jogador vence o jogo
 func call_win() -> void:
-	pass
+	get_tree().paused = true
 
 ## Controla as ações quando exibindo os créditos
 func call_credits() -> void:
-	print("Showing game credits now")
+	pass
 
 ## Funções de manipulação de scores e vidas #########################
 
@@ -110,3 +90,8 @@ func lose_life() -> void:
 
 func remove_bricks() -> void:
 	total_bricks = max(total_bricks - 1, 0)
+	
+	if total_bricks != 0:
+		return
+	
+	change_state(State.WIN)

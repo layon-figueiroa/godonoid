@@ -76,15 +76,11 @@ func _on_state_changed(new_state) -> void:
 	match new_state:
 		GameManager.State.START:
 			_on_life_lost()
-			print("A bola está paradinha")
 		GameManager.State.STAND_BY:
 			_on_life_lost()
-			print("A bola está paradinha")
 		GameManager.State.PLAYING:
 			reinitialize_move()
-			print("A bola está se movendo")
 		GameManager.State.PAUSED:
 			return
 		GameManager.State.GAME_OVER:
 			_on_life_lost()
-			print("A bola está paradinha")

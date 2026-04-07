@@ -27,9 +27,6 @@ func update_lives() -> void:
 	generate_lives_panel()
 	
 func _on_state_changed(new_state) -> void:
-	'''if new_state != GameManager.State.PLAYING:
-		visible = false
-		return'''
 	if (
 		new_state == GameManager.State.STAND_BY or 
 		new_state == GameManager.State.GAME_OVER or

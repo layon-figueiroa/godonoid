@@ -6,7 +6,6 @@ func _ready() -> void:
 	GameManager.state_changed.connect(_on_state_changed)
 	
 func generate_lives_panel() -> void:
-	print("Atualmente tem: ", GameManager.lives)
 	for i in range(GameManager.lives):
 		var texture_scene = preload("res://scenes/life_texture.tscn")
 		var texture = texture_scene.instantiate()

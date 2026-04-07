@@ -74,20 +74,16 @@ func _on_state_changed(new_state) -> void:
 			_on_life_lost()
 			reset_bonus()
 			collision.disabled = true
-			print("O paddle está paradinho")
 		GameManager.State.STAND_BY:
 			_on_life_lost()
 			reset_bonus()
 			collision.disabled = true
-			print("O paddle está paradinho")
 		GameManager.State.PLAYING:
 			reinitialize_move()
 			collision.disabled = false
-			print("O paddle está se movendo")
 		GameManager.State.PAUSED:
 			return
 		GameManager.State.GAME_OVER:
 			_on_life_lost()
 			reset_bonus()
 			collision.disabled = true
-			print("O paddle está paradinho")

@@ -27,8 +27,6 @@ func _input(event) -> void:
 		pause_game = !pause_game
 		
 		if pause_game:
-			print(pause_game)
 			GameManager.change_state(GameManager.State.PAUSED)
 		else:
-			print(pause_game)
 			GameManager.change_state(GameManager.State.UNPAUSED)
