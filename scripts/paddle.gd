@@ -58,11 +58,13 @@ func _on_bonus_collected(effect) -> void:
 			increase_speed()
 		"score":
 			add_score()
+			AudioManager.play_sfx(preload("res://assets/audios/Arkanoid-SFX-_9_.mp3"))
 		"hold":
 			var ball = get_tree().get_first_node_in_group("ball")
 			ball._on_hold_active()
 		"growth":
 			growth_paddle()
+			AudioManager.play_sfx(preload("res://assets/audios/Arkanoid-SFX-_4__1.mp3"))
 
 func _on_life_lost() -> void:
 	speed = 0

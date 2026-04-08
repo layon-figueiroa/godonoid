@@ -89,7 +89,7 @@ vertical_alignment = 1
 
 [node name="LblNome" type="Label" parent="VContainer/VContainerMusica"]
 layout_mode = 2
-text = "[Ainda sem]"
+text = "The Sounds Resource/Downloads Khinsider"
 label_settings = SubResource("LabelSettings_0ctdu")
 horizontal_alignment = 1
 vertical_alignment = 1
