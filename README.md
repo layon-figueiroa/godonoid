@@ -1,4 +1,4 @@
-# 🐦 Godonoid
+# 🧱 Godonoid
 
 ![Godot](https://img.shields.io/badge/Engine-Godot%204-blue)
 ![Language](https://img.shields.io/badge/Language-GDScript-purple)
