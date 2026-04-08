@@ -9,6 +9,9 @@ var attached_to_paddle: Node2D = null #Aqui define-se a que paddle a bola ficarÃ
 var offset: Vector2 #Aqui define-se o offset do paddle pra bola
 var initial_position: Vector2 = Vector2(286.0, 521.0)
 var ping_pong: bool = false
+var acceleration_factor: float = 1.025
+var linear_boost: float = 5.0
+var max_speed: float = 800.0
 
 func _ready() -> void:
 	velocity = Vector2.ZERO
@@ -35,10 +38,20 @@ func move_ball(delta: float) -> void:
 		ping_pong = !ping_pong
 		handle_collision(collision)
 		velocity = velocity.bounce(collision.get_normal())
-		if ping_pong:
-			AudioManager.play_sfx(preload("res://assets/audios/Arkanoid-SFX-_6__1.mp3"))
-		else:
-			AudioManager.play_sfx(preload("res://assets/audios/Arkanoid-SFX-_7_.mp3"))
+		
+		velocity *= acceleration_factor
+		velocity += velocity.normalized() * linear_boost
+		
+		if velocity.length() > max_speed:
+			velocity = velocity.normalized() * max_speed
+			
+		play_sound()
+		
+func play_sound() -> void:
+	if ping_pong:
+		AudioManager.play_sfx(preload("res://assets/audios/Arkanoid-SFX-_6__1.mp3"))
+	else:
+		AudioManager.play_sfx(preload("res://assets/audios/Arkanoid-SFX-_7_.mp3"))
 
 func handle_collision(collision: KinematicCollision2D) -> void:
 	var collider = collision.get_collider()
